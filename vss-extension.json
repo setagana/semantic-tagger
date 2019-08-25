@@ -1,0 +1,66 @@
+{
+    "manifestVersion": 1,
+    "id": "<<EXTENSION ID>>",
+    "name": "<<EXTENSION NAME>>",
+    "version": "0.0.1",
+    "publisher": "<<PUBLISHER NAME>>",
+    "tags": [
+        "<<ARRAY OF MARKETPLACE TAGS>>"
+    ],
+    "galleryFlags": [
+        "Public"
+    ],
+    "content": {
+        "license": {
+          "path": "LICENSE"
+        },
+        "details": {
+          "path": "README.md"
+        }
+    },
+    "links": {
+        "support": {
+          "uri": "<<ISSUES LINK OF THE GITHUB REPO FOR YOUR EXTENSION>>"
+        },
+        "repository": {
+          "uri": "<<THE GITHUB REPO FOR YOUR EXTENSION>>"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "<<THE GITHUB REPO FOR YOUR EXTENSION>>"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "<<SHORT DESCRIPTION OF EXTENSION>>",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "screenshots": [{
+        "path": "<<EXTENSION SCREENSHOT>>"
+      }
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"        
+    },
+    "files": [
+        {
+            "path": "<<FOLDER NAME IN THIS REPO THAT CONTAINS THE EXTENSION SRC>>"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "version-extractor-build-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "<<TASK NAME>>"
+            }
+        }
+    ]
+}

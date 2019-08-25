@@ -1,0 +1,24 @@
+{
+    "id": "<<A GUID FOR YOUR TASK>>",
+    "name": "<<SHORT TASK NAME>>",
+    "friendlyName": "<<HUMAN-FRIENDLY TASK NAME>>",
+    "description": "<<SHORT TASK DESCRIPTION>>",
+    "helpMarkDown": "[More info](<<THE GITHUB REPO FOR YOUR EXTENSION>>)",
+    "category": "Utility",
+    "visibility": ["Build"],
+    "author": "<<YOUR PUBLISHER NAME>>",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 1
+    },
+    "inputs": [
+        // TODO: Link to Net Core Extractor example
+    ],
+    "instanceNameFormat": "<<THE TASK NAME AS SEEN IN THE CLASSIC PIPELINE EDITOR - CAN CONTAIN BUILD VARIABLES>>",
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    }
+}
