@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "<<EXTENSION ID>>",
-    "name": "<<EXTENSION NAME>>",
+    "id": "semantic-tagger",
+    "name": "Semantic Tagger",
     "version": "0.0.1",
-    "publisher": "<<PUBLISHER NAME>>",
+    "publisher": "Matthew de Beer",
     "tags": [
         "<<ARRAY OF MARKETPLACE TAGS>>"
     ],
@@ -20,22 +20,22 @@
     },
     "links": {
         "support": {
-          "uri": "<<ISSUES LINK OF THE GITHUB REPO FOR YOUR EXTENSION>>"
+          "uri": "https://github.com/setagana/semantic-tagger/issues"
         },
         "repository": {
-          "uri": "<<THE GITHUB REPO FOR YOUR EXTENSION>>"
+          "uri": "https://github.com/setagana/semantic-tagger"
         }
     },
     "repository": {
         "type": "git",
-        "uri": "<<THE GITHUB REPO FOR YOUR EXTENSION>>"
+        "uri": "https://github.com/setagana/semantic-tagger"
     },
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "<<SHORT DESCRIPTION OF EXTENSION>>",
+    "description": "A build pipeline task to add a timestamp pre-release tag to a semantic version.",
     "categories": [
         "Azure Pipelines"
     ],
@@ -59,7 +59,7 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "<<TASK NAME>>"
+                "name": "semantic-tagger-task"
             }
         }
     ]
