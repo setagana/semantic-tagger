@@ -1,6 +1,6 @@
 // TODO: Replace the text below with a user guide for your extension.
 
-# TFX extension template
+# Semantic Tagger
 
 This repository forms a reusable template for the development of Azure Devops extensions.
 
