@@ -40,7 +40,7 @@
             "label": "Pre-release tag prefix",
             "defaultValue": "alpha",
             "required": false,
-            "helpMarkDown": "Provide an optional prefix for the pre-release tag. May only contain alphanumerics and hyphens. If left blank, tags will be prefixed with _alpha_."
+            "helpMarkDown": "Provide an optional prefix for the pre-release tag. May only contain alphanumerics and hyphens and as such does not support multiple identifiers as described in SemVer V2. If left blank, tags will be prefixed with _alpha_."
         },
         {
             "name": "setBuildNumber",
