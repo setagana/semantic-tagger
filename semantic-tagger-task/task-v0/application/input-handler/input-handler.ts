@@ -31,11 +31,11 @@ const InputHandler: InputHandlerConstructor = class InputHandler implements Inpu
         
         // If there is no hyphen, there is definitely no tag - return nothing
         if (hyphenIndex === -1) return "";
-        // If there is a hyphen before a plus, there is a tag inbetween the two
+        // If there is a hyphen before a plus, there must be a tag inbetween the two
         if (hyphenIndex < plusIndex) return version.slice(hyphenIndex + 1, plusIndex);
         // There is a hyphen, and as long as it's not part of metadata (there is no plus in the version) then the hyphen is the start of a tag
-        if (plusIndex === -1 )return version.slice(hyphenIndex + 1, version.length);
-        // There is a hyphen, but it is part of metadata, so we have no tag
+        if (plusIndex === -1 ) return version.slice(hyphenIndex + 1, version.length);
+        // There is a hyphen but it is part of metadata, so we have no tag
         return "";
     }
 
