@@ -37,9 +37,9 @@ const TagSetter: TagSetterConstructor = class TagSetter implements TagSetterInte
                 case "overwrite":
                     return taskPrefix;
                 case "error":
-                    throw `The provided semantic version contains a prerelease tag, and this task is set to fail if a prerelease tag already exists. The existing tag is: ${existingTag}`;
+                    throw new Error(`The provided semantic version contains a prerelease tag, and this task is set to fail if a prerelease tag already exists. The existing tag is: ${existingTag}`);
                 default:
-                    throw "An unexpected value was provided for how to handle an existing prerelease tag. Expect values are 'honor', 'overwrite' and 'error'.";
+                    throw new Error("An unexpected value was provided for how to handle an existing prerelease tag. Expect values are 'honor', 'overwrite' and 'error'.");
             }
         }
 

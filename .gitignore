@@ -72,5 +72,8 @@ typings/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Ignore utility scripts
+*.ps1
+
 #Ignore compiled packages
 *.vsix

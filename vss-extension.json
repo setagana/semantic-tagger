@@ -2,22 +2,27 @@
     "manifestVersion": 1,
     "id": "semantic-tagger",
     "name": "Semantic Tagger",
-    "version": "0.0.1",
-    "publisher": "Matthew de Beer",
+    "version": "1.0.0",
+    "publisher": "MatthewdeBeer",
     "tags": [
-        "<<ARRAY OF MARKETPLACE TAGS>>"
-    ],
-    "galleryFlags": [
-        "Public"
+        "build",
+        "semantic version",
+        "semver",
+        "versioning",
+        "version",
+        "Utility task"
     ],
     "content": {
         "license": {
           "path": "LICENSE"
         },
         "details": {
-          "path": "README.md"
+          "path": "ReadMe.md"
         }
     },
+    "galleryFlags": [ 
+        "Public" 
+    ],
     "links": {
         "support": {
           "uri": "https://github.com/setagana/semantic-tagger/issues"
@@ -40,7 +45,7 @@
         "Azure Pipelines"
     ],
     "screenshots": [{
-        "path": "<<EXTENSION SCREENSHOT>>"
+        "path": "images/SemanticTagger.png"
       }
     ],
     "icons": {
@@ -48,7 +53,7 @@
     },
     "files": [
         {
-            "path": "<<FOLDER NAME IN THIS REPO THAT CONTAINS THE EXTENSION SRC>>"
+            "path": "semantic-tagger-task"
         }
     ],
     "contributions": [

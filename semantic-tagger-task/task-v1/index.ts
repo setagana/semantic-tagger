@@ -15,11 +15,15 @@ async function run() {
         const addTimestamp: boolean = taskLibrary.getBoolInput("addTimestamp", true);
         const setBuildNumber: boolean = taskLibrary.getBoolInput("setBuildNumber", true);
 
+        console.log(`Semantic Tagger: Attempting to tag semantic version ${version}`);
+
         let dateTime = new DateTime();
         let tagSetter = new TagSetter(dateTime, onExistingTag.toLowerCase(), addTimestamp);
 
-        if (!inputHandler.isValidSemanticVersion(version)) throw `Provided version does not appear to be a valid semantic version according to the SemVer V2 spec: ${version}`;
-        if (!inputHandler.isValidPrefix(prefix)) throw `Provided prefix is not valid for this task. The prefix may only contain alphanumerics and hyphens. Provided value is: ${prefix}`;
+        if (!inputHandler.isValidSemanticVersion(version)) throw new Error(`Provided version does not appear to be a valid semantic version according to the SemVer V2 spec: ${version}`);
+        if (!inputHandler.isValidPrefix(prefix)) throw new Error(`Provided prefix is not valid for this task. The prefix may only contain alphanumerics and hyphens. Provided value is: ${prefix}`);
+
+        console.log("Semantic Tagger: Finished input validation.");
         
         let versionParts = inputHandler.splitVersionTag(version);
         let releaseVersion = versionParts[0];
@@ -28,8 +32,14 @@ async function run() {
 
         let taggedVersion = tagSetter.getTaggedSemanticVersion(releaseVersion, existingTag, metadata, prefix);
 
-        if (setBuildNumber) taskLibrary.updateBuildNumber(taggedVersion);
+        console.log(`Semantic Tagger: Calculated the following tagged version: ${taggedVersion}`);
+
+        if (setBuildNumber) {
+            taskLibrary.updateBuildNumber(taggedVersion);
+            console.log("Semantic Tagger: Set build number.");
+        }
         taskLibrary.setVariable(variableName, taggedVersion);
+        console.log(`Semantic Tagger: Set variable ${variableName}.`);
     }
     catch (err) {
         taskLibrary.setResult(taskLibrary.TaskResult.Failed, err.message);

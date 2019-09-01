@@ -8,9 +8,9 @@
     "visibility": ["Build"],
     "author": "Matthew de Beer",
     "version": {
-        "Major": 0,
+        "Major": 1,
         "Minor": 0,
-        "Patch": 1
+        "Patch": 0
     },
     "inputs": [
         {
@@ -23,10 +23,9 @@
         },
         {
             "name": "onExistingTag",
-            "type": "array",
+            "type": "pickList",
             "label": "On existing tag",
             "helpMarkDown": "If the provided version already contains a pre-release tag, how should it be handled?",
-            "defaultValue": "error",
             "required": true,
             "options": {
                 "error": "Fail the task",
@@ -39,16 +38,16 @@
             "type": "string",
             "label": "Pre-release tag prefix",
             "defaultValue": "alpha",
-            "required": false,
-            "helpMarkDown": "Provide an optional prefix for the pre-release tag. May only contain alphanumerics and hyphens and as such does not support period-separated identifiers as described in SemVer V2. If left blank, tags will be prefixed with **alpha**."
+            "required": true,
+            "helpMarkDown": "Provide a prefix for the pre-release tag. May only contain alphanumerics and hyphens and as such does not support period-separated identifiers as described in SemVer V2."
         },
         {
             "name": "addTimestamp",
             "type": "boolean",
-            "label": "Set Build Number to tagged version",
+            "label": "Add timestamp to tag",
             "defaultValue": true,
             "required": false,
-            "helpMarkDown": "Optionally add a unix timestamp to the prerelease tag. If true, the final tag will be **-{prefix}{timestamp}**."
+            "helpMarkDown": "Optionally add a unix timestamp to the prerelease tag. If true, the final tag will be **-{prefix}{timestamp}** or **-{existingtag}{timestamp}**."
         },
         {
             "name": "setBuildNumber",
