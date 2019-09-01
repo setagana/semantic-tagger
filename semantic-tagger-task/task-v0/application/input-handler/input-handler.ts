@@ -10,6 +10,7 @@ const InputHandler: InputHandlerConstructor = class InputHandler implements Inpu
     }
         
     isValidPrefix(prefix: string): boolean {
+        if (prefix === "") return true;
         let validPrefixPattern = new RegExp(/^[0-9a-zA-Z-]{1,30}$/);
         return validPrefixPattern.test(prefix);
     }

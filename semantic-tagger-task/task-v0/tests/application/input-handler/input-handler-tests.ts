@@ -1,8 +1,8 @@
-import { expect } from 'chai';
-import { InputHandler } from '../../../application/input-handler/input-handler';
+import { expect } from "chai";
+import { InputHandler } from "../../../application/input-handler/input-handler";
 
 function InputHandlerTests() {
-    it('should validate simple semantic versions', () => {
+    it("should validate simple semantic versions", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0";
 
@@ -11,7 +11,7 @@ function InputHandlerTests() {
         expect(result).to.equal(true);
     });
 
-    it('should validate semantic versions with a prerelease tag', () => {
+    it("should validate semantic versions with a prerelease tag", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0-alpha01";
 
@@ -20,7 +20,7 @@ function InputHandlerTests() {
         expect(result).to.equal(true);
     });
 
-    it('should invalidate semantic versions with leading zeroes', () => {
+    it("should invalidate semantic versions with leading zeroes", () => {
         let inputHandler = new InputHandler();
         let version = "01.02.03";
 
@@ -29,7 +29,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should invalidate semantic versions with negative integers', () => {
+    it("should invalidate semantic versions with negative integers", () => {
         let inputHandler = new InputHandler();
         let version = "-1.0.0";
 
@@ -38,7 +38,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should invalidate semantic versions with only Major and Minor integers', () => {
+    it("should invalidate semantic versions with only Major and Minor integers", () => {
         let inputHandler = new InputHandler();
         let version = "1.0";
 
@@ -47,7 +47,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should invalidate semantic versions with only a Major integer', () => {
+    it("should invalidate semantic versions with only a Major integer", () => {
         let inputHandler = new InputHandler();
         let version = "1";
 
@@ -56,7 +56,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should invalidate prerelease tags with non-alphanumeric, non-hypen or non-period characters', () => {
+    it("should invalidate prerelease tags with non-alphanumeric, non-hypen or non-period characters", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0-alpha%";
 
@@ -65,7 +65,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should invalidate prerelease tags with empty identifiers', () => {
+    it("should invalidate prerelease tags with empty identifiers", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0-alpha..1";
 
@@ -74,7 +74,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should invalidate prerelease tag identifiers with leading zeroes', () => {
+    it("should invalidate prerelease tag identifiers with leading zeroes", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0-alpha.01.test";
 
@@ -83,7 +83,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should validate prefixes containing only alphanumeric characters', () => {
+    it("should validate prefixes containing only alphanumeric characters", () => {
         let inputHandler = new InputHandler();
         let prefix = "alpha01";
 
@@ -92,7 +92,16 @@ function InputHandlerTests() {
         expect(result).to.equal(true);
     });
 
-    it('should validate prefixes containing hyphens', () => {
+    it("should validate empty prefixes", () => {
+        let inputHandler = new InputHandler();
+        let prefix = "";
+
+        let result = inputHandler.isValidPrefix(prefix);
+
+        expect(result).to.equal(true);
+    });
+
+    it("should validate prefixes containing hyphens", () => {
         let inputHandler = new InputHandler();
         let prefix = "Alpha-Beta-01";
 
@@ -101,7 +110,7 @@ function InputHandlerTests() {
         expect(result).to.equal(true);
     });
 
-    it('should invalidate prefixes containing periods', () => {
+    it("should invalidate prefixes containing periods", () => {
         let inputHandler = new InputHandler();
         let prefix = "alpha.beta";
 
@@ -110,7 +119,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should invalidate prefixes containing other invalid characters', () => {
+    it("should invalidate prefixes containing other invalid characters", () => {
         let inputHandler = new InputHandler();
         let prefix = "alpha^beta";
 
@@ -119,7 +128,7 @@ function InputHandlerTests() {
         expect(result).to.equal(false);
     });
 
-    it('should return an empty string tag on a simple semantic version', () => {
+    it("should return an empty string tag on a simple semantic version", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0";
 
@@ -130,7 +139,7 @@ function InputHandlerTests() {
         expect(result[2]).to.equal("");
     });
 
-    it('should return the version and tag when only a tag is present', () => {
+    it("should return the version and tag when only a tag is present", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0-alpha01";
 
@@ -141,7 +150,7 @@ function InputHandlerTests() {
         expect(result[2]).to.equal("");
     });
 
-    it('should return return a single tag when multiple hyphens are used', () => {
+    it("should return a single tag when multiple hyphens are used", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0-alpha-beta-01";
 
@@ -151,7 +160,7 @@ function InputHandlerTests() {
         expect(result[1]).to.equal("alpha-beta-01");
     });
 
-    it('should return the version and metadata when only metadata is present', () => {
+    it("should return the version and metadata when only metadata is present", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0+exp-sha.5114f85";
 
@@ -162,7 +171,7 @@ function InputHandlerTests() {
         expect(result[2]).to.equal("exp-sha.5114f85");
     });
 
-    it('should return the version, tag and metadata when all three are present', () => {
+    it("should return the version, tag and metadata when all three are present", () => {
         let inputHandler = new InputHandler();
         let version = "1.0.0-alpha01+exp.sha.5114f85";
 

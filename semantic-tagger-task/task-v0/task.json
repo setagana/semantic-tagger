@@ -3,7 +3,7 @@
     "name": "semantic-tagger",
     "friendlyName": "Semantic Tagger",
     "description": "A build pipeline task to add a timestamp pre-release tag to a semantic version.",
-    "helpMarkDown": "[More info](https://github.com/setagana/semantic-tagger)",
+    "helpMarkDown": "Will set the tagged version in the build variable $(TaggedSemanticVersion). [More info](https://github.com/setagana/semantic-tagger)",
     "category": "Utility",
     "visibility": ["Build"],
     "author": "Matthew de Beer",
@@ -40,7 +40,15 @@
             "label": "Pre-release tag prefix",
             "defaultValue": "alpha",
             "required": false,
-            "helpMarkDown": "Provide an optional prefix for the pre-release tag. May only contain alphanumerics and hyphens and as such does not support multiple identifiers as described in SemVer V2. If left blank, tags will be prefixed with _alpha_."
+            "helpMarkDown": "Provide an optional prefix for the pre-release tag. May only contain alphanumerics and hyphens and as such does not support period-separated identifiers as described in SemVer V2. If left blank, tags will be prefixed with **alpha**."
+        },
+        {
+            "name": "addTimestamp",
+            "type": "boolean",
+            "label": "Set Build Number to tagged version",
+            "defaultValue": true,
+            "required": false,
+            "helpMarkDown": "Optionally add a unix timestamp to the prerelease tag. If true, the final tag will be **-{prefix}{timestamp}**."
         },
         {
             "name": "setBuildNumber",
@@ -48,7 +56,7 @@
             "label": "Set Build Number to tagged version",
             "defaultValue": false,
             "required": false,
-            "helpMarkDown": "Optionally set the Build Number to the version once it's tagged."
+            "helpMarkDown": "Optionally set the Build Number of the current build to the version once it's tagged."
         }
     ],
     "instanceNameFormat": "Add version pre-release tag",
